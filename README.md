@@ -15,5 +15,5 @@ This project is a 2-page Flutter app. The first page is the CV page and second i
 No external package used.
 
 ## Demonstration
-Appetize (https://appetize.io/app/aj63lq74enkhpr3cf4fsa54ri4)
+Appetize ( https://appetize.io/app/dq5z5romty25q77hjis7ycceom )
 
