@@ -4,7 +4,8 @@ HNGX stage 2 task.
 
 ## Introduction
 
-This project is a 2-page Flutter app. The first page is the CV page and second is the edit screen. 
+This project is a 2-page Flutter app. The first page is the CV page and second is the edit screen.
+The CV Page has a floating action button that takes users to the edit page and the edit page is scrollable and has a save button at the end to save the user changes.
 
 ## Installation
 - Clone the repo
