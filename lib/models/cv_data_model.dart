@@ -29,6 +29,7 @@ class CVData {
       {String? fullName,
       githubHandle,
       slackUsername,
+      stack,
       briefBio,
       role,
       employmentDate,
@@ -47,6 +48,7 @@ class CVData {
       educationDate: educationDate ?? this.educationDate,
       school: school ?? this.school,
       course: course ?? this.course,
+      stack: stack ?? this.stack,
     );
   }
 }

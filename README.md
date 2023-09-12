@@ -18,3 +18,6 @@ No external package used.
 ## Demonstration
 Appetize ( https://appetize.io/app/dq5z5romty25q77hjis7ycceom )
 
+## Assumption
+It is assumed that no field can be left blank hence an error is shown when any field is empty and the details won't be edited.
+

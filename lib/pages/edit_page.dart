@@ -47,7 +47,10 @@ class _EditPageState extends State<EditPage> {
         briefBioController.text.isEmpty ||
         roleController.text.isEmpty ||
         comapnyController.text.isEmpty ||
-        employmentDateController.text.isEmpty) {
+        employmentDateController.text.isEmpty ||
+        schoolController.text.isEmpty ||
+        courseController.text.isEmpty ||
+        stackController.text.isEmpty) {
       ScaffoldMessenger.of(context)
         ..removeCurrentSnackBar()
         ..showSnackBar(const SnackBar(
@@ -65,6 +68,7 @@ class _EditPageState extends State<EditPage> {
         school: schoolController.text,
         educationDate: educationDateController.text,
         course: courseController.text,
+        stack: stackController.text,
       );
       Navigator.pop(context, data);
     }
