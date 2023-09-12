@@ -18,7 +18,8 @@ class _EditPageState extends State<EditPage> {
   final TextEditingController briefBioController = TextEditingController();
   final TextEditingController roleController = TextEditingController();
   final TextEditingController comapnyController = TextEditingController();
-  final TextEditingController employmentDateController = TextEditingController();
+  final TextEditingController employmentDateController =
+      TextEditingController();
   final TextEditingController educationDateController = TextEditingController();
   final TextEditingController schoolController = TextEditingController();
   final TextEditingController courseController = TextEditingController();
@@ -39,130 +40,144 @@ class _EditPageState extends State<EditPage> {
     educationDateController.text = widget.cvData.educationDate!;
   }
 
+  void submit() {
+    if (fullNameController.text.isEmpty ||
+        slackUsernameController.text.isEmpty ||
+        githubHandleController.text.isEmpty ||
+        briefBioController.text.isEmpty ||
+        roleController.text.isEmpty ||
+        comapnyController.text.isEmpty ||
+        employmentDateController.text.isEmpty) {
+      ScaffoldMessenger.of(context)
+        ..removeCurrentSnackBar()
+        ..showSnackBar(const SnackBar(
+            backgroundColor: Colors.red,
+            content: Text("Field can't be empty")));
+    } else {
+      CVData data = const CVData().copyWith(
+        fullName: fullNameController.text,
+        slackUsername: slackUsernameController.text,
+        githubHandle: githubHandleController.text,
+        briefBio: briefBioController.text,
+        role: roleController.text,
+        company: comapnyController.text,
+        employmentDate: employmentDateController.text,
+        school: schoolController.text,
+        educationDate: educationDateController.text,
+        course: courseController.text,
+      );
+      Navigator.pop(context, data);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Edit CV'),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: kAllPadding,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                'Biodata',
-                style: kSubHeadingStyle,
-              ),
-              kSmallSizedBox,
-              TextField(
-                decoration:
-                    kTextfieldDecoration.copyWith(labelText: 'Full Name'),
-                controller: fullNameController,
-              ),
-              kSizedBox,
-              TextField(
-                decoration: kTextfieldDecoration.copyWith(labelText: 'Stack'),
-                controller: fullNameController,
-              ),
-              kSizedBox,
-              TextField(
-                decoration:
-                    kTextfieldDecoration.copyWith(labelText: 'Slack Name'),
-                controller: slackUsernameController,
-              ),
-              kSizedBox,
-              TextField(
-                decoration:
-                    kTextfieldDecoration.copyWith(labelText: 'Github Handle'),
-                controller: githubHandleController,
-              ),
-              kSmallSizedBox,
-              const Text(
-                'Brief Bio',
-                style: kSubHeadingStyle,
-              ),
-              kSmallSizedBox,
-              TextField(
-                maxLines: 5,
-                decoration:
-                    kTextfieldDecoration.copyWith(labelText: 'Brief Bio'),
-                controller: briefBioController,
-              ),
-              kSmallSizedBox,
-              const Text(
-                'Professional experience',
-                style: kSubHeadingStyle,
-              ),
-              kSmallSizedBox,
-              TextField(
-                decoration: kTextfieldDecoration.copyWith(labelText: 'Role'),
-                controller: roleController,
-              ),
-              kSizedBox,
-              TextField(
-                decoration: kTextfieldDecoration.copyWith(labelText: 'Company'),
-                controller: comapnyController,
-              ),
-              kSizedBox,
-              TextField(
-                decoration: kTextfieldDecoration.copyWith(labelText: 'Date'),
-                controller: employmentDateController,
-              ),
-              kSmallSizedBox,
-              const Text(
-                'Education',
-                style: kSubHeadingStyle,
-              ),
-              kSmallSizedBox,
-              TextField(
-                decoration: kTextfieldDecoration.copyWith(labelText: 'Course'),
-                controller: courseController,
-              ),
-              kSizedBox,
-              TextField(
-                decoration: kTextfieldDecoration.copyWith(labelText: 'School'),
-                controller: schoolController,
-              ),
-              kSizedBox,
-              TextField(
-                decoration: kTextfieldDecoration.copyWith(labelText: 'Date'),
-                controller: educationDateController,
-              ),
-              kSizedBox,
-              Center(
-                child: AppButton(
-                  title: "Save",
-                  onPressed: () {
-                    if (fullNameController.text.isEmpty ||
-                        slackUsernameController.text.isEmpty ||
-                        githubHandleController.text.isEmpty ||
-                        briefBioController.text.isEmpty ||
-                        roleController.text.isEmpty ||
-                        comapnyController.text.isEmpty ||
-                        employmentDateController.text.isEmpty) {
-                      ScaffoldMessenger.of(context)
-                        ..removeCurrentSnackBar()
-                        ..showSnackBar(const SnackBar(
-                            backgroundColor: Colors.red,
-                            content: Text("Field can't be empty")));
-                    } else {
-                      CVData data = const CVData().copyWith(
-                        fullName: fullNameController.text,
-                        slackUsername: slackUsernameController.text,
-                        githubHandle: githubHandleController.text,
-                        briefBio: briefBioController.text,
-                        role: roleController.text,
-                        company: comapnyController.text,
-                        employmentDate: employmentDateController.text,
-                      );
-                      Navigator.pop(context, data);
-                    }
-                  },
+      body: WillPopScope(
+        onWillPop: () async {
+          submit();
+          return true;
+        },
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: kAllPadding,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Biodata',
+                  style: kSubHeadingStyle,
                 ),
-              )
-            ],
+                kSmallSizedBox,
+                TextField(
+                  decoration:
+                      kTextfieldDecoration.copyWith(labelText: 'Full Name'),
+                  controller: fullNameController,
+                ),
+                kSizedBox,
+                TextField(
+                  decoration: kTextfieldDecoration.copyWith(labelText: 'Stack'),
+                  controller: stackController,
+                ),
+                kSizedBox,
+                TextField(
+                  decoration:
+                      kTextfieldDecoration.copyWith(labelText: 'Slack Name'),
+                  controller: slackUsernameController,
+                ),
+                kSizedBox,
+                TextField(
+                  decoration:
+                      kTextfieldDecoration.copyWith(labelText: 'Github Handle'),
+                  controller: githubHandleController,
+                ),
+                kSmallSizedBox,
+                const Text(
+                  'Brief Bio',
+                  style: kSubHeadingStyle,
+                ),
+                kSmallSizedBox,
+                TextField(
+                  maxLines: 5,
+                  decoration:
+                      kTextfieldDecoration.copyWith(labelText: 'Brief Bio'),
+                  controller: briefBioController,
+                ),
+                kSmallSizedBox,
+                const Text(
+                  'Professional experience',
+                  style: kSubHeadingStyle,
+                ),
+                kSmallSizedBox,
+                TextField(
+                  decoration: kTextfieldDecoration.copyWith(labelText: 'Role'),
+                  controller: roleController,
+                ),
+                kSizedBox,
+                TextField(
+                  decoration:
+                      kTextfieldDecoration.copyWith(labelText: 'Company'),
+                  controller: comapnyController,
+                ),
+                kSizedBox,
+                TextField(
+                  decoration: kTextfieldDecoration.copyWith(labelText: 'Date'),
+                  controller: employmentDateController,
+                ),
+                kSmallSizedBox,
+                const Text(
+                  'Education',
+                  style: kSubHeadingStyle,
+                ),
+                kSmallSizedBox,
+                TextField(
+                  decoration:
+                      kTextfieldDecoration.copyWith(labelText: 'Course'),
+                  controller: courseController,
+                ),
+                kSizedBox,
+                TextField(
+                  decoration:
+                      kTextfieldDecoration.copyWith(labelText: 'School'),
+                  controller: schoolController,
+                ),
+                kSizedBox,
+                TextField(
+                  decoration: kTextfieldDecoration.copyWith(labelText: 'Date'),
+                  controller: educationDateController,
+                ),
+                kSizedBox,
+                Center(
+                  child: AppButton(
+                    title: "Save",
+                    onPressed: () => submit(),
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

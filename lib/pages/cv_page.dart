@@ -22,85 +22,87 @@ class _CVPageState extends State<CVPage> {
         title: Text(widget.title),
         centerTitle: true,
       ),
-      body: Center(
-        child: Padding(
-          padding: kAllPadding,
-          child: Column(
-            //mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              //kSmallSizedBox,
-              Text(
-                data.fullName!,
-                style: kNameStyle,
-              ),
-              Text(
-                data.stack!,
-                // style: kNameStyle,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text('Slack Username: '),
-                  Text(data.slackUsername!),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text('Github Handle: '),
-                  Text(data.githubHandle!),
-                ],
-              ),
-              kDivider,
-              buildSectionTitle('Bio'),
-              SizedBox(
-                height: 120,
-                child: Text(
-                  data.briefBio!,
-                  overflow: TextOverflow.clip,
-                  
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: kAllPadding,
+            child: Column(
+              //mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                //kSmallSizedBox,
+                Text(
+                  data.fullName!,
+                  style: kNameStyle,
                 ),
-              ),
-              kDivider,
-              buildSectionTitle('Professional Expereince'),
-              // kSizedBox,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(data.employmentDate!),
-                  
-                  Text(data.role!),
-                ],
-              ),
-              Row(
-                mainAxisAlignment:MainAxisAlignment.spaceBetween ,
-                children: [
-                  const SizedBox(
-                    width: 75,
+                Text(
+                  data.stack!,
+                  // style: kNameStyle,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('Slack Username: '),
+                    Text(data.slackUsername!),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('Github Handle: '),
+                    Text(data.githubHandle!),
+                  ],
+                ),
+                kDivider,
+                buildSectionTitle('Bio'),
+                SizedBox(
+                  height: 120,
+                  child: Text(
+                    data.briefBio!,
+                    overflow: TextOverflow.clip,
+                    
                   ),
-                  Text(data.company!),
-                ],
-              ),
-              kDivider,
-              buildSectionTitle('Education'),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(data.educationDate!),
-                  
-                   Text(data.course!, overflow: TextOverflow.clip,),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const SizedBox(
-                    width: 75,
-                  ),
-                  Text(data.school!),
-                ],
-              ),
-            ],
+                ),
+                kDivider,
+                buildSectionTitle('Professional Expereince'),
+                // kSizedBox,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(data.employmentDate!),
+                    
+                    Text(data.role!),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment:MainAxisAlignment.spaceBetween ,
+                  children: [
+                    const SizedBox(
+                      width: 75,
+                    ),
+                    Text(data.company!),
+                  ],
+                ),
+                kDivider,
+                buildSectionTitle('Education'),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(data.educationDate!),
+                    
+                     Text(data.course!, overflow: TextOverflow.clip,),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const SizedBox(
+                      width: 75,
+                    ),
+                    Text(data.school!),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
