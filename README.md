@@ -16,7 +16,7 @@ The CV Page has a floating action button that takes users to the edit page and t
 No external package used.
 
 ## Demonstration
-Appetize ( https://appetize.io/app/dq5z5romty25q77hjis7ycceom )
+Appetize ( https://appetize.io/app/zmdweu2mpkbtecypvzaqml7sdi)
 
 ## Assumption
 It is assumed that no field can be left blank hence an error is shown when any field is empty and the details won't be edited.
