@@ -1,16 +1,20 @@
 # hngx2
 
-A new Flutter project.
+HNGX stage 2 task.
 
-## Getting Started
+## Introduction
 
-This project is a starting point for a Flutter application.
+This project is a 2-page Flutter app. The first page is the CV page and second is the edit screen.
+The CV Page has a floating action button that takes users to the edit page and the edit page is scrollable and has a save button at the end to save the user changes.
 
-A few resources to get you started if this is your first Flutter project:
+## Installation
+- Clone the repo
+- run 'flutter pub get' to get all the packages and dependecies
+- run the command 'flutter run'
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Packages used
+No external package used.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Demonstration
+Appetize ( https://appetize.io/app/dq5z5romty25q77hjis7ycceom )
+
